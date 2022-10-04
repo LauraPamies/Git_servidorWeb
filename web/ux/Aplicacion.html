@@ -1,0 +1,76 @@
+<!-- ---------------------------------------------------- -->
+<!-- ---------------------------------------------------- -->
+<!DOCTYPE html>
+<html>
+
+<!-- ---------------------------------------------------- -->
+<!-- ---------------------------------------------------- -->
+
+<head>
+  <meta charset="utf-8" />
+
+ 
+  <script src="logicaFake/buscarMedicion.js"></script>
+
+
+
+  
+  <script>
+    function buscarMedicionPulsado() {
+
+  
+
+      // llamo a la función de la lógica (versión fake)
+      buscarMedicion(function (err, res) {
+        // cuando tenga el resultado lo muestro
+        if (err) {
+          alert(" hubo un error de transmisión http: " + err)
+          return
+        } else if (res.error) {
+          alert(" hubo un error en la llamada: " + JSON.stringify(res.error))
+          return
+        }
+        document.getElementById("salida").innerHTML = " resultado= " + JSON.stringify(res);
+      })
+
+    }
+  </script>
+
+
+</head>
+
+<!-- ---------------------------------------------------- -->
+<!-- ---------------------------------------------------- -->
+
+<body>
+
+  <h1>Aplicación web</h1>
+
+  <form>
+    id:<br>
+    <input id="id" type="text" name="id" value="xxxx">
+    <br>
+    medicion:<br>
+    <input id="valor" type="text" name="Valor" value="bbbb">
+    <br>
+    fecha:<br>
+    <input id="fecha" type="text" name="fecha" value="hhhh">
+    <br>
+
+  </form>
+
+  <p>
+
+    <button type="buton" onclick="buscarMedicionPulsado()">Mostrar todas las mediciones</button>
+
+  <p>
+
+  <p id="salida"></p>
+
+</body>
+
+</html>
+<!-- ---------------------------------------------------- -->
+<!-- ---------------------------------------------------- -->
+<!-- ---------------------------------------------------- -->
+<!-- ---------------------------------------------------- -->
