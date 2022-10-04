@@ -60,6 +60,7 @@ module.exports = class Logica {
 	} // ()
 
 
+	//comentario de prueba
 	
 
 	// .................................................................
