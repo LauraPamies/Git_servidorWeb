@@ -62,18 +62,14 @@ module.exports = class Logica {
 	} // ()
 
 
-	//comentario de prueba
-	
 
 	// .................................................................
-	// dni:Texto
+	// buscarTodasMediciones() -->
 	// -->
-	// buscarPersonaPorDNI() <--
-	// <--
-	// {dni:Texto, nombre:Texto: apellidos:Texto}
+	// {id:int, valor:int, fecha:Texto, latidud: int, longitud: int}
 	// .................................................................
-	buscarMedicion() {	//devuelve un array de objetos (pero al buscar un dni solo tendrá un objeto el array)
-		var textoSQL = "select * from Mediciones"; //el asterisco hace que se parametrice (osea $dni es el parámetro del método) //ESTO ES POR SEGURIDAD
+	buscarTodasMediciones() {	//devuelve un array de objetos
+		var textoSQL = "select * from Mediciones";
 		return new Promise((resolver, rechazar) => {
 			this.laConexion.all(textoSQL,  //el .all devuelve arrays de objetos
 				(err, res) => {
