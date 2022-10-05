@@ -13,6 +13,7 @@
   <script src="logicaFake/buscarTodasMediciones.js"></script>
   <script src="logicaFake/buscarMedicionValor.js"></script>
 
+  
 
 
   <!-- ---------------------------------------------------- -->
@@ -21,10 +22,19 @@
     function buscarMedicionValorPulsado() {
 
       var valor = document.getElementById("valor").value
+      var tablafinal = document.getElementById('tabla');
+
+      var tablafilas = tablafinal.getElementsByTagName('tr');
+
+
+      for (let i = tablafilas.length - 1; i > 0; i--) {
+        tablafilas[i].remove();
+      }
+
 
 
       // llamo a la función de la lógica (versión fake)
-      buscarMedicionValor(valor,function (err, res) {
+      buscarMedicionValor(valor, function (err, res) {
         // cuando tenga el resultado lo muestro
         if (err) {
           alert(" hubo un error de transmisión http: " + err)
@@ -33,7 +43,29 @@
           alert(" hubo un error en la llamada: " + JSON.stringify(res.error))
           return
         }
-        document.getElementById("salida").innerHTML = " resultado= " + JSON.stringify(res);
+
+
+        //--------- METEMOS LOS VALORES EN LA TABLA -----------
+
+        //Aqui vamos a guardar los tr y td con su informacion.
+        let tablaContent = ``;
+
+        for (const item of res) {
+          //Fijate que utilizamos += para acumular los datos. 
+          //Template strings syntax
+          tablaContent += `
+          <tr>
+          <td>${item.id}</td>
+          <td>${item.valor}</td>
+          <td>${item.fecha}</td>
+          <td>${item.latitud}</td>
+          <td>${item.longitud}</td>
+          </td>
+  
+          `
+        }
+        //Finalmente añadimos el contenido a la tabla
+        tablafinal.innerHTML += tablaContent
       })
 
     }
@@ -44,6 +76,14 @@
   <script>
     function buscarTodasMedicionesPulsado() {
 
+      var tablafinal = document.getElementById('tabla');
+
+      var tablafilas = tablafinal.getElementsByTagName('tr');
+
+
+      for (let i = tablafilas.length - 1; i > 0; i--) {
+        tablafilas[i].remove();
+      }
 
 
       // llamo a la función de la lógica (versión fake)
@@ -56,7 +96,28 @@
           alert(" hubo un error en la llamada: " + JSON.stringify(res.error))
           return
         }
-        document.getElementById("salida").innerHTML = " resultado= " + JSON.stringify(res);
+
+        //--------- METEMOS LOS VALORES EN LA TABLA -----------
+
+        //Aqui vamos a guardar los tr y td con su informacion.
+        let tablaContent = ``;
+
+        for (const item of res) {
+          //Fijate que utilizamos += para acumular los datos. 
+          //Template strings syntax
+          tablaContent += `
+          <tr>
+          <td>${item.id}</td>
+          <td>${item.valor}</td>
+          <td>${item.fecha}</td>
+          <td>${item.latitud}</td>
+          <td>${item.longitud}</td>
+          </td>
+  
+          `
+        }
+        //Finalmente añadimos el contenido a la tabla
+        tablafinal.innerHTML += tablaContent
       })
 
     }
@@ -94,11 +155,24 @@
 
 
 
+  <table id="tabla">
+
+    <tr>
+
+      <th>Id</th>
+
+      <th>Valor</th>
+
+      <th>Fecha</th>
+
+      <th>Latitud</th>
+
+      <th>Longitud</th>
+
+    </tr>
 
 
-
-
-
+  </table>
 
 
 
