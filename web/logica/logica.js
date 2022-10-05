@@ -38,19 +38,21 @@ module.exports = class Logica {
 				cb(err)
 			})
 	} // ()
-	
+
 	// .................................................................
-	// datos:{dni:Texto, nombre:Texto: apellidos:Texto}
+	// datos:{id:int, valor:int, fecha:Texto, latidud: int, longitud: int}
 	// -->
-	// insertarPersona() -->
+	// insertarMedicion() -->
 	// .................................................................
 	insertarMedicion(datos) {
-		var textoSQL = //ES RECOMENDABLE HACERLO DE ESTA MANERA (en vez de la manera del delete de arriba)
-			"insert into Mediciones values($id, $valor, $fecha );" //todo lo que empiece por $ son parámetros
+		var textoSQL =
+			"insert into Mediciones values($id, $valor, $fecha, $latitud, $longitud );" //todo lo que empiece por $ son parámetros
 		var valoresParaSQL = {
 			$id: datos.id,
 			$valor: datos.valor,
-			$fecha: datos.fecha
+			$fecha: datos.fecha,
+			$latitud: datos.latitud,
+			$longitud: datos.longitud
 		}
 		return new Promise((resolver, rechazar) => {
 			this.laConexion.run(textoSQL, valoresParaSQL, function (err) {
