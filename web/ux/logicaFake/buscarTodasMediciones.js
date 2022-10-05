@@ -1,9 +1,9 @@
 // ---------------------------------------------------
 // fake
 // ---------------------------------------------------
-function buscarMedicion( cb ) {
+function buscarTodasMediciones( cb ) {
 
-	var nombreFuncion = "http://localhost:8080/medicion/";
+	var nombreFuncion = "http://localhost:8080/allmedicionmediciones/";
 
 
 	// preparar la llamada remota
