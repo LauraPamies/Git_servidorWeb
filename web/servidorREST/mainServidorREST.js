@@ -39,6 +39,8 @@ function cargarReglasUniversales(servidorExpress, laLogica) {
 	}) // get /prueba
 
 
+//prueba
+
 	// .......................................................
 	// GET /medicion/		DEVUELVE TODAS LAS MEDICIONES
 	// .......................................................
