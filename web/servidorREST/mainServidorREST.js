@@ -39,42 +39,56 @@ function cargarReglasUniversales(servidorExpress, laLogica) {
 	}) // get /prueba
 
 
-//prueba
+
 
 	// .......................................................
-	// GET /medicion/		DEVUELVE TODAS LAS MEDICIONES
+	// GET /allmedicionmediciones/		DEVUELVE TODAS LAS MEDICIONES
 	// .......................................................
-	servidorExpress.get("/medicion/",
+	servidorExpress.get("/allmedicionmediciones/",
 		async function (peticion, respuesta) {
-			console.log(" * GET /medicion ")
-			// averiguo el dni
-			
+			console.log(" * GET /allmedicionmediciones ")
+
 			// llamo a la función adecuada de la lógica
-			var res = await laLogica.buscarMedicion()
-			// si el array de resultados no tiene una casilla ...
-			
+			var res = await laLogica.buscarTodasMediciones()
+
 			// todo ok
 			respuesta.send(JSON.stringify(res))	//se pasa el obj persona a JSON para enviarlo
 		}) // get /persona
 
 
 
-	
+	// .......................................................
+	// GET /medicionvalor/		DEVUELVE TODAS LAS MEDICIONES CON UN MISMO VALOR
+	// .......................................................
+	servidorExpress.get("/medicionvalor/:valor",
+		async function (peticion, respuesta) {
+			console.log(" * GET /medicionvalor ")
+			var valor = peticion.params.valor;
+
+			// llamo a la función adecuada de la lógica
+			var res = await laLogica.buscarMedicionValor(valor)
+			
+
+			// todo ok
+			respuesta.send(JSON.stringify(res))	//se pasa el obj persona a JSON para enviarlo
+		}) // get /persona
+
+
 	// .......................................................
 	// post /altaMedicion/		INSERTA UNA NUEVA MEDICION
 	// .......................................................
 	servidorExpress.post("/altaMedicion", async function (peticion, respuesta) {
-        console.log(" * POST /altaMedicion ")
-        var datos = JSON.parse(peticion.body)
-        console.log(datos.valor)
+		console.log(" * POST /altaMedicion ")
+		var datos = JSON.parse(peticion.body)
+		console.log(datos.valor)
 
-        await laLogica.insertarMedicion(datos)
-        respuesta.send("OK")
-    })
+		await laLogica.insertarMedicion(datos)
+		respuesta.send("OK")
+	})
 
 
 
-	
+
 
 
 } // ()
