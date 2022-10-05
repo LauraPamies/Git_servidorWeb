@@ -78,11 +78,17 @@ module.exports = class Logica {
 		})
 	} // ()
 
-	buscarMedicionValorFecha(valor, fecha) {	//devuelve un array de objetos (pero al buscar un dni solo tendrá un objeto el array)
-		var textoSQL = "select * from Mediciones where valor = $valor AND fecha = $fecha"; //el asterisco hace que se parametrice (osea $dni es el parámetro del método) //ESTO ES POR SEGURIDAD
+
+	// .................................................................
+	// valor:int -->
+	// --> buscarMedicionValor() -->
+	// -->
+	// {id:int, valor:int, fecha:Texto, latidud: int, longitud: int}
+	// .................................................................
+	buscarMedicionValor(valor) {	//devuelve un array de objetos
+		var textoSQL = "select * from Mediciones where valor = $valor"; //el asterisco hace que se parametrice (osea $dni es el parámetro del método) //ESTO ES POR SEGURIDAD
 		var valoresParaSQL = {
 			$valor : valor,
-			$fecha : fecha
 		}
 		return new Promise((resolver, rechazar) => {
 			this.laConexion.all(textoSQL,valoresParaSQL,  //el .all devuelve arrays de objetos
