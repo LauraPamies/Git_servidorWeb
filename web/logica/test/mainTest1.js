@@ -37,14 +37,16 @@ describe("Test 1: insertar una Medicion", function () {	//las pruebas se hacen d
 			//aqui se puede poner trycatch para coger los errores de los awaits
 			await laLogica.insertarMedicion(
 				{
-					id: null, valor: 645,
-					fecha: "26-09-2022"
+					id: null, valor: 88,
+					fecha: "fecha test logica",
+					latitud: 43,
+					longitud: 55
 				})
-			var res = await laLogica.buscarMedicionValorFecha(645,"26-09-2022")
+			var res = await laLogica.buscarMedicionValor(88)
 			//EL ASSERT ES LO QUE VERIFICA SI ESTÁ BIEN O MAL (el 1º parámetro es el que nos da, el 2º parámetro es el que nos tiene que dar, el 3º parámetro es el mensaje de error)
 			//assert.equal(res.length, 1, "¿no hay un resulado?")  // -->  (a, b, c) -> if (a!=b) --> return c 
 			
-			assert.equal(res[0].valor, 645, "¿no es 645?") //EL EQUAL ES PARA COMPARAR A CON B
+			assert.equal(res[0].valor, 88, "¿no es 88?") //EL EQUAL ES PARA COMPARAR A CON B
 	})
 
 	
