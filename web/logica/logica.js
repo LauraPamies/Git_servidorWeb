@@ -62,6 +62,20 @@ module.exports = class Logica {
 	} // ()
 
 
+	// .................................................................
+	//valor:int -->
+	// borrarFilaTablaTest() -->
+	// .................................................................
+
+	borrarFilaTablaTest(){
+		return new Promise((resolver,rechazar)=>{
+			this.laConexion.run(
+				"delete from Mediciones where valor = 88 AND fecha = 'fecha test logica' AND latitud= 43 AND longitud= 55",
+				(err) => (err ? rechazar(err) : resolver())
+			)
+		})
+	}
+
 
 	// .................................................................
 	// buscarTodasMediciones() -->
