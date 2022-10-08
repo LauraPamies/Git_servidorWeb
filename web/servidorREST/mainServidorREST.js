@@ -86,6 +86,16 @@ function cargarReglasUniversales(servidorExpress, laLogica) {
 		respuesta.send("OK")
 	})
 
+	// .......................................................
+	// post /borrarFilaTablaTest/		BorrarLasFilasTest
+	// .......................................................
+	servidorExpress.post("/borrarFilaTablaTest", async function (peticion, respuesta) {
+		console.log(" * POST /borrarFilaTablaTest ")
+		
+		await laLogica.borrarFilaTablaTest()
+		respuesta.send("OK")
+	})
+
 
 
 

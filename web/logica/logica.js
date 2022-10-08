@@ -67,13 +67,18 @@ module.exports = class Logica {
 	// borrarFilaTablaTest() -->
 	// .................................................................
 
-	borrarFilaTablaTest(){
-		return new Promise((resolver,rechazar)=>{
+	async borrarFilaTablaTest(){
+		return new Promise
+		((resolver,rechazar)=>{
 			this.laConexion.run(
-				"delete from Mediciones where valor = 88 AND fecha = 'fecha test logica' AND latitud= 43 AND longitud= 55",
+				"delete from Mediciones where valor = 88 AND latitud= 43 AND longitud= 55",
+				//"delete from Mediciones where id=18",
+
 				(err) => (err ? rechazar(err) : resolver())
 			)
 		})
+		
+		
 	}
 
 

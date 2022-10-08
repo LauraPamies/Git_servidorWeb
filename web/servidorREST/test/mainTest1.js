@@ -23,7 +23,7 @@ describe( "Test 1: TEST DEL SERVIDOR", function() {
 		request.post(
 			{ url : IP_PUERTO+"/altaMedicion",
 			  headers : { 'User-Agent' : 'laura', 'Content-Type' : 'application/json' },
-			  body : JSON.stringify( {id: null, valor: 99, fecha: "fecha test servidor",latitud: 66, longitud: 77 } )
+			  body : JSON.stringify( {id: null, valor: 88, fecha: "fecha test servidor",latitud: 43, longitud: 55 } )
 			},
 			function( err, respuesta, carga ) {
 
@@ -40,7 +40,7 @@ describe( "Test 1: TEST DEL SERVIDOR", function() {
 	it( "probar GET /f/medicionvalor", function( hecho ) {
 
 		request.get(
-			{ url : IP_PUERTO+"/medicionvalor/99",
+			{ url : IP_PUERTO+"/medicionvalor/88",
 			  headers : { 'User-Agent' : 'laura', 'Content-Type' : 'application/json' },
 			  //body : JSON.stringify( {valor: 99 } )
 			},
@@ -56,6 +56,25 @@ describe( "Test 1: TEST DEL SERVIDOR", function() {
 			} // callback
 		) // .get
 	}) // it
+
+	// ........................................................................... 
+	// 3. 
+	// ........................................................................... 
+	it( "probar POST /f/borrarFilaTablaTest", function( hecho ) {
+
+		request.post(
+			{ url : IP_PUERTO+"/borrarFilaTablaTest",
+			  headers : { 'User-Agent' : 'laura', 'Content-Type' : 'application/json' },
+			  body :null
+			},
+			function( err, respuesta, carga ) {
+
+				assert.equal( err, null, "¿ha habido un error?: " + err )
+				assert.equal( respuesta.statusCode, 200, "¿El código no es 200 (OK)" )
+				hecho()
+			} // callback
+		) // .post
+	})
 	
 }) // describe
 
