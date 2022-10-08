@@ -35,6 +35,7 @@ describe("Test 1: insertar una Medicion", function () {	//las pruebas se hacen d
 		async function () {
 			//AQUI EMPIEZA LA PRUEBA
 			//aqui se puede poner trycatch para coger los errores de los awaits
+
 			await laLogica.insertarMedicion(
 				{
 					id: null, valor: 88,
@@ -49,6 +50,14 @@ describe("Test 1: insertar una Medicion", function () {	//las pruebas se hacen d
 			assert.equal(res[0].valor, 88, "¿no es 88?") //EL EQUAL ES PARA COMPARAR A CON B
 	})
 
+	it("Borro las mediciones añadidas en la BBDD",	//Esta prueba es importante porque usa assert
+	async function () {
+		//AQUI EMPIEZA LA PRUEBA
+		//aqui se puede poner trycatch para coger los errores de los awaits
+
+		await laLogica.borrarFilaTablaTest();
+		
+})
 	
 	// ....................................................
 	// ....................................................
