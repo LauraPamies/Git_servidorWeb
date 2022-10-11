@@ -23,6 +23,11 @@ Para abrir el servidor hay que abrir una consola de comandos e ir a la ubicació
 
 ![image](https://user-images.githubusercontent.com/73590648/195058154-67f505b4-eba9-46f2-90fe-00a18bbf6ca0.png)
 
+Para cerrar el servidor web se pulsa 'control + c ' y le indicamos que si deseamos cerrarlo
+
+![image](https://user-images.githubusercontent.com/73590648/195061765-3986383a-48ab-47d8-bca2-693d76253684.png)
+
+
 En el servidor se encuentran tres funciones:
 
 ## Get All Mediciones
