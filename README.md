@@ -34,13 +34,28 @@ En el servidor se encuentran tres funciones:
 
 Esta función llamará a una función de la lógica que obtiene mediante un método 'get' todas las mediciones de la base de datos.
 
+### Ejemplo de Get All Mediciones
+
+![image](https://user-images.githubusercontent.com/73590648/195700100-23047b42-2195-4fa2-b144-00b777dbdbf8.png)
+
+
 ## Get Medición Valor
 
 Esta función llamará a una función de la lógica que obtiene mediante un método 'get' todas las mediciones de la base de datos con el valor solicitado.
 
+### Ejemplo de Get Medicion Valor
+
+![image](https://user-images.githubusercontent.com/73590648/195700608-af57d36c-5109-43ec-b3d3-4015cdca3882.png)
+
+
 ## Alta Medición
 
 Esta función llamará a una función de la lógica que inserta mediante un método 'post' la medición a la base de datos con los datos que se le pasen.
+
+### Ejemplo de Alta Medicion
+
+![image](https://user-images.githubusercontent.com/73590648/195701609-d7979a3f-f779-4de4-8bdd-bca677222d81.png)
+
 
 ### Ejecución de los test
 
